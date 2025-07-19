@@ -1,0 +1,19 @@
+// 4.	Write a program that demonstrates an O(N^2) time complexity operation (e.g., finding all pairs in an array). Explain why it's O(N^2) in comments.
+
+#include <stdio.h>
+
+int main() {
+    int arr[] = {1, 2, 3};  // Example array
+    int n = 3;  // Size of the array
+
+    // Outer loop runs 'n' times
+    for (int i = 0; i < n; i++) {
+        // Inner loop also runs 'n' times for each outer loop
+        for (int j = 0; j < n; j++) {
+            // Print the pair (arr[i], arr[j])
+            printf("(%d, %d)\n", arr[i], arr[j]);
+        }
+    }
+
+    return 0;
+}

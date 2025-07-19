@@ -1,0 +1,18 @@
+// 3.	Write a program that demonstrates an O(N) time complexity operation (e.g., finding the maximum element in an array). Explain why it's O(N) in comments.
+
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {10, 25, 5, 40, 30};
+    int max = arr[0];
+
+    // Loop through array to find max
+    for(int i = 1; i < 5; i++) {
+        if(arr[i] > max) {
+            max = arr[i];
+        }
+    }
+
+    printf("Maximum = %d\n", max);
+    return 0;
+}

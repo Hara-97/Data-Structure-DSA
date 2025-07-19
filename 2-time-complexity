@@ -1,0 +1,14 @@
+// 2.	Write a program that demonstrates an O(1) time complexity operation (e.g., accessing an element in an array by index). Explain why it's O(1) in comments.
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int index = 2;  // Index to access
+
+    // Accessing the element at index 2 directly
+    // This is an O(1) operation because it takes constant time,
+    // regardless of the size of the array.
+    printf("Element at index %d is: %d\n", index, arr[index]);
+
+    return 0;
+}

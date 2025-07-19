@@ -1,0 +1,22 @@
+// 5.	Write a program to demonstrate an O(log N) time complexity operation (e.g., repeatedly dividing a number by 2 until it reaches 1). Explain why it's O(log N) in comments.
+
+#include <stdio.h>
+
+int main() {
+    int n;
+
+    // Ask the user to enter a number
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    // Keep dividing the number by 2 until it becomes 1
+    while (n > 1) {
+        printf("%d\n", n);  // Print the current number
+        n = n / 2;          // Divide the number by 2
+    }
+
+    // Print the final value 1
+    printf("%d\n", n);
+
+    return 0;
+}

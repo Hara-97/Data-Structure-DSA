@@ -1,0 +1,29 @@
+// 1.	Write a program to calculate the time taken to sum integers from 1 to N using a simple loop. Repeat for increasing N and observe how execution time grows. (Empirical observation of linear time).
+
+#include <stdio.h>
+#include <time.h>
+
+int main() {
+    int N, i;
+    int sum = 0;
+    clock_t start, end;
+    float time_taken;
+
+    printf("Enter the value of N: ");
+    scanf("%d", &N);
+
+    start = clock();  // Start time
+
+    for(i = 1; i <= N; i++) {
+        sum += i;
+    }
+
+    end = clock();  // End time
+
+    time_taken = ((float)(end - start)) / CLOCKS_PER_SEC;
+
+    printf("Sum of 1 to %d is: %lld\n", N, sum);
+    printf("Time taken: %f seconds\n", time_taken);
+
+    return 0;
+}

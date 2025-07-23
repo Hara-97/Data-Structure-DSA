@@ -1,0 +1,15 @@
+// 10.	If an algorithm takes T(N) = 5N^3 + 2N^2 + 100 operations for an input size N, what is its asymptotic Big O notation? Explain. (Conceptual, in comments).
+
+// T(N) = 5N^3 + 2N^2 + 100
+
+// We look at the term that grows the fastest when N becomes large.
+
+// N^3 grows faster than N^2 or 100.
+
+// In Big O, we ignore smaller terms and constants.
+
+// So, we keep only N^3.
+
+// Final answer: O(N^3)
+
+Because N³ is the term that grows the fastest.

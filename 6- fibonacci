@@ -1,0 +1,22 @@
+// 6.	Write a program to calculate the Nth Fibonacci number using a recursive approach. Analyze and comment on its exponential time complexity 
+
+#include <stdio.h>
+
+// Function to find nth Fibonacci number
+int fibonacci(int n) {
+    if (n == 0)
+        return 0;        // 0th Fibonacci number
+    else if (n == 1)
+        return 1;        // 1st Fibonacci number
+    else
+        return fibonacci(n - 1) + fibonacci(n - 2);  // Recursive call
+}
+
+int main() {
+    int n;
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    printf("Fibonacci number at position %d is %d\n", n, fibonacci(n));
+    return 0;
+}

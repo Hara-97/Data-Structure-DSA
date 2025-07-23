@@ -18,6 +18,10 @@ int main() {
         }
     }
 
-    printf("Largest prime factor is %lld\n", largest);
+    printf("Largest prime factor is %d\n", largest);
     return 0;
 }
+
+
+
+// Time Complexity: O(N) (in worst case)

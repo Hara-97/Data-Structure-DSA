@@ -1,0 +1,20 @@
+// 9.	Consider a sorting algorithm that compares every element with every other element. Describe its asymptotic time complexity (no implementation needed, just conceptual understanding).
+
+If a sorting algorithm compares each element with every other element, it means:
+
+For n elements, each one is compared with about n others.
+
+So, total comparisons are around n × n = n².
+
+Time Complexity:
+The time taken grows quickly as the number of elements increases.
+
+This is called O(n²) time complexity.
+
+Example:
+Bubble Sort and Selection Sort do this.
+
+They are slow for large lists.
+
+Simple answer:
+The time complexity is O(n²) because every element is compared with every other.

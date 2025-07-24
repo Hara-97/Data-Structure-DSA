@@ -1,0 +1,32 @@
+// 17.	Implement a program to delete an element from a specific position in an array.
+#include <stdio.h>
+
+int main() {
+    int arr[100], n, pos, i;
+
+    // Get size and elements
+    printf("Enter size: ");
+    scanf("%d", &n);
+
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Get position to delete
+    printf("Enter position to delete: ");
+    scanf("%d", &pos);
+
+    // Delete element
+    for(i = pos - 1; i < n - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+
+    // Print new array
+    printf("New array:\n");
+    for(i = 0; i < n - 1; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}

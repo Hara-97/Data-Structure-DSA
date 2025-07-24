@@ -1,0 +1,24 @@
+// 11.	Compare and contrast Big O, Big Omega, and Big Theta notations in the context of an algorithm's running time. (Conceptual, in comments).
+/*
+    Big O, Big Omega, and Big Theta (Simple Explanation)
+
+    1. Big O (O):
+       - Shows the worst-case time of an algorithm.
+       - It means the time will not go more than this.
+       - Example: O(n) means at most 'n' steps.
+
+    2. Big Omega (Ω):
+       - Shows the best-case time of an algorithm.
+       - It means the time will take at least this much.
+       - Example: Ω(n) means at least 'n' steps.
+
+    3. Big Theta (Θ):
+       - Shows the exact (best and worst) time of an algorithm.
+       - It means time is always around this amount.
+       - Example: Θ(n) means time is always close to 'n'.
+
+    Summary:
+    - Big O = Maximum time (worst case)
+    - Big Omega = Minimum time (best case)
+    - Big Theta = Exact time (both best and worst are same)
+*/

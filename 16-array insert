@@ -1,0 +1,47 @@
+// 16.	Write a program to insert an element at a specific position in an array. Handle the case where the array is full.
+#include <stdio.h>
+
+int main() {
+    int arr[100];      // Array with max size 100
+    int n, pos, element;
+
+    // Get number of elements
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    // Get elements
+    printf("Enter %d elements:\n", n);
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Get element and position
+    printf("Enter element to insert: ");
+    scanf("%d", &element);
+    printf("Enter position (0 to %d): ", n);
+    scanf("%d", &pos);
+
+    // Check if array is full
+    if(n == 100) {
+        printf("Array is full. Cannot insert.\n");
+        return 0;
+    }
+
+    // Shift elements right
+    for(int i = n; i > pos; i--) {
+        arr[i] = arr[i - 1];
+    }
+
+    // Insert element
+    arr[pos] = element;
+    n++;
+
+    // Print updated array
+    printf("Array after insertion:\n");
+    for(int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+

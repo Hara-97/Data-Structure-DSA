@@ -1,0 +1,20 @@
+// 13.	Write a program to calculate X raised to the power N using repeated multiplication. Analyze its time complexity.
+#include <stdio.h>
+
+int main() {
+    int X, N;
+    int result = 1;
+
+    printf("Enter base (X): ");
+    scanf("%d", &X);
+
+    printf("Enter exponent (N): ");
+    scanf("%d", &N);
+
+    for(int i = 1; i <= N; i++) {
+        result = result * X;
+    }
+
+    printf("X^N = %d\n", result);
+    return 0;
+}

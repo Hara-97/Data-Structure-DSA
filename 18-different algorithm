@@ -1,0 +1,66 @@
+// 18.	Write a program that implements two different algorithms to find if an element exists in an array: one using linear search (O(N)) and another using binary search (O(log N)). For various array sizes (e.g., 1000, 10000, 100000), measure and compare the execution times of both algorithms. Observe and comment on how their performance scales differently with increasing input size.
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+// Linear Search
+int linearSearch(int arr[], int n, int key) {
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == key)
+            return i;
+    }
+    return -1;
+}
+
+// Binary Search (array must be sorted)
+int binarySearch(int arr[], int n, int key) {
+    int low = 0, high = n - 1;
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        if (arr[mid] == key)
+            return mid;
+        else if (arr[mid] < key)
+            low = mid + 1;
+        else
+            high = mid - 1;
+    }
+    return -1;
+}
+
+int main() {
+    int sizes[] = {1000, 10000, 100000};
+    int key, *arr;
+    clock_t start, end;
+    double timeLinear, timeBinary;
+
+    for (int i = 0; i < 3; i++) {
+        int n = sizes[i];
+        arr = (int *)malloc(n * sizeof(int));
+
+        // Fill sorted array
+        for (int j = 0; j < n; j++)
+            arr[j] = j + 1;
+
+        key = n - 1; // Search for a number near the end
+
+        // Measure Linear Search Time
+        start = clock();
+        linearSearch(arr, n, key);
+        end = clock();
+        timeLinear = (double)(end - start) / CLOCKS_PER_SEC;
+
+        // Measure Binary Search Time
+        start = clock();
+        binarySearch(arr, n, key);
+        end = clock();
+        timeBinary = (double)(end - start) / CLOCKS_PER_SEC;
+
+        printf("\nArray Size: %d\n", n);
+        printf("Linear Search Time: %f seconds\n", timeLinear);
+        printf("Binary Search Time: %f seconds\n", timeBinary);
+
+        free(arr);
+    }
+
+    return 0;
+}

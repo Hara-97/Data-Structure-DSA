@@ -1,0 +1,18 @@
+// 21.	Implement a program to remove duplicate elements from a sorted array in-place.
+#include <stdio.h>
+
+int main() {
+    int arr[] = {1, 1, 2, 2, 3, 4, 4, 5};
+    int n = 8;
+    int i, j;
+
+    printf("Array after removing duplicates: ");
+    for (i = 0; i < n; i++) {
+        // Print only if current element is not same as next
+        if (arr[i] != arr[i + 1]) {
+            printf("%d ", arr[i]);
+        }
+    }
+
+    return 0;
+}

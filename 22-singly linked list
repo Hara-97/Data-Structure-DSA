@@ -1,0 +1,40 @@
+// 22.	Design and implement a Singly Linked List. Include functions for: a) Insertion at the beginning. b) Insertion at the end. c) Insertion after a given node. d) Deletion of a node by value. e) Deletion of a node by position. f) Traversal and printing all elements.
+#include <stdio.h>
+#include <stdlib.h>
+
+// Node structure
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+struct Node* head = NULL; // Start of list
+
+// Insert at beginning
+void insertBeginning(int value) {
+    struct Node* newNode = malloc(sizeof(struct Node));
+    newNode->data = value;
+    newNode->next = head;
+    head = newNode;
+}
+
+// Print all elements
+void printList() {
+    struct Node* temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+
+// Main function
+int main() {
+    insertBeginning(30);
+    insertBeginning(20);
+    insertBeginning(10);
+
+    printList();  // Output: 10 -> 20 -> 30 -> NULL
+
+    return 0;
+}

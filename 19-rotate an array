@@ -1,0 +1,37 @@
+// 19.	Develop a program to rotate an array to the left by k positions.
+#include <stdio.h>
+
+int main() {
+    int arr[100], n, k, i, j, temp;
+
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    printf("Enter array elements:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter number of positions to rotate left: ");
+    scanf("%d", &k);
+
+    // Repeat k times
+    for(i = 0; i < k; i++) {
+        temp = arr[0];  // Store first element
+
+        // Shift all elements left by one
+        for(j = 0; j < n - 1; j++) {
+            arr[j] = arr[j + 1];
+        }
+
+        arr[n - 1] = temp;  // Move first element to end
+    }
+
+    // Print rotated array
+    printf("Array after left rotation:\n");
+    for(i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}

@@ -1,0 +1,89 @@
+// 26.	Develop a program to remove the Nth node from the end of a Singly Linked List.
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+// Add node at end
+void addNode(struct Node** head, int value) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = value;
+    newNode->next = NULL;
+
+    if (*head == NULL)
+        *head = newNode;
+    else {
+        struct Node* temp = *head;
+        while (temp->next != NULL)
+            temp = temp->next;
+        temp->next = newNode;
+    }
+}
+
+// Count total nodes
+int getCount(struct Node* head) {
+    int count = 0;
+    while (head != NULL) {
+        count++;
+        head = head->next;
+    }
+    return count;
+}
+
+// Remove Nth node from end
+void removeNthFromEnd(struct Node** head, int n) {
+    int total = getCount(*head);
+    int position = total - n;
+
+    if (position == 0) {
+        struct Node* temp = *head;
+        *head = (*head)->next;
+        free(temp);
+        return;
+    }
+
+    struct Node* temp = *head;
+    for (int i = 0; i < position - 1; i++)
+        temp = temp->next;
+
+    struct Node* toDelete = temp->next;
+    temp->next = toDelete->next;
+    free(toDelete);
+}
+
+// Print the list
+void printList(struct Node* head) {
+    while (head != NULL) {
+        printf("%d -> ", head->data);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+int main() {
+    struct Node* head = NULL;
+    int n;
+
+    // Add some sample nodes
+    addNode(&head, 10);
+    addNode(&head, 20);
+    addNode(&head, 30);
+    addNode(&head, 40);
+    addNode(&head, 50);
+
+    printf("Original List:\n");
+    printList(head);
+
+    printf("Enter N (node from end to delete): ");
+    scanf("%d", &n);
+
+    removeNthFromEnd(&head, n);
+
+    printf("List after deletion:\n");
+    printList(head);
+
+    return 0;
+}

@@ -1,0 +1,35 @@
+// 24.	Write a program to find the middle element of a Singly Linked List in a single pass
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+int main() {
+    // Create 5 nodes
+    struct Node n1 = {1, NULL};
+    struct Node n2 = {2, NULL};
+    struct Node n3 = {3, NULL};
+    struct Node n4 = {4, NULL};
+    struct Node n5 = {5, NULL};
+
+    // Link the nodes
+    n1.next = &n2;
+    n2.next = &n3;
+    n3.next = &n4;
+    n4.next = &n5;
+
+    // Use slow and fast pointer
+    struct Node* slow = &n1;
+    struct Node* fast = &n1;
+
+    while (fast != NULL && fast->next != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    printf("Middle element: %d\n", slow->data);
+    return 0;
+}

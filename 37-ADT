@@ -1,0 +1,51 @@
+// 37.	Write a program that implements a simplified Stack Abstract Data Type (ADT) using an array. The program should only expose public push, pop, and isEmpty functions, ensuring that the internal array implementation details are hidden from the user of the ADT.
+#include <stdio.h>
+
+#define SIZE 5
+
+int stack[SIZE];
+int top = -1;
+
+// Push function
+void push(int value) {
+    if (top == SIZE - 1) {
+        printf("Stack is full\n");
+    } else {
+        top++;
+        stack[top] = value;
+    }
+}
+
+// Pop function
+int pop() {
+    if (top == -1) {
+        printf("Stack is empty\n");
+        return -1;
+    } else {
+        int val = stack[top];
+        top--;
+        return val;
+    }
+}
+
+// Check if stack is empty
+int isEmpty() {
+    return top == -1;
+}
+
+// Main function
+int main() {
+    push(10);
+    push(20);
+    push(30);
+
+    printf("Popped: %d\n", pop());  // 30
+    printf("Popped: %d\n", pop());  // 20
+
+    if (isEmpty())
+        printf("Stack is empty\n");
+    else
+        printf("Stack is not empty\n");
+
+    return 0;
+}

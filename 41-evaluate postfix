@@ -1,0 +1,57 @@
+// 41.	Develop a program to evaluate a postfix expression using a Stack
+#include <stdio.h>
+#include <ctype.h>
+
+int stack[100];
+int top = -1;
+
+// Push function
+void push(int value) {
+    top++;
+    stack[top] = value;
+}
+
+// Pop function
+int pop() {
+    int value = stack[top];
+    top--;
+    return value;
+}
+
+// Function to evaluate postfix expression
+int evaluate(char exp[]) {
+    int i = 0;
+    while (exp[i] != '\0') {
+        char ch = exp[i];
+
+        if (isdigit(ch)) {
+            push(ch - '0');  // Convert char to int
+        } else if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
+            int b = pop();
+            int a = pop();
+            int result;
+
+            if (ch == '+') result = a + b;
+            else if (ch == '-') result = a - b;
+            else if (ch == '*') result = a * b;
+            else if (ch == '/') result = a / b;
+
+            push(result);
+        }
+        i++;
+    }
+    return pop();
+}
+
+// Main function
+int main() {
+    char expression[100];
+
+    printf("Enter postfix expression (no spaces, single-digit numbers only): ");
+    scanf("%s", expression);
+
+    int result = evaluate(expression);
+    printf("Result = %d\n", result);
+
+    return 0;
+}

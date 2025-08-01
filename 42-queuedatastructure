@@ -1,0 +1,61 @@
+// 42.	Implement a Queue data structure using an array. Include enqueue, dequeue, front, rear, and isEmpty operations. Handle queue full/empty
+#include <stdio.h>
+#define SIZE 5
+
+int queue[SIZE];
+int front = -1, rear = -1;
+
+// Add element to queue
+void enqueue(int value) {
+    if (rear == SIZE - 1) {
+        printf("Queue is Full\n");
+    } else {
+        if (front == -1)
+            front = 0;
+        rear++;
+        queue[rear] = value;
+        printf("%d added to queue\n", value);
+    }
+}
+
+// Remove element from queue
+void dequeue() {
+    if (front == -1 || front > rear) {
+        printf("Queue is Empty\n");
+    } else {
+        printf("%d removed from queue\n", queue[front]);
+        front++;
+    }
+}
+
+// Show front element
+void showFront() {
+    if (front == -1 || front > rear) {
+        printf("Queue is Empty\n");
+    } else {
+        printf("Front = %d\n", queue[front]);
+    }
+}
+
+// Show rear element
+void showRear() {
+    if (front == -1 || front > rear) {
+        printf("Queue is Empty\n");
+    } else {
+        printf("Rear = %d\n", queue[rear]);
+    }
+}
+
+int main() {
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    showFront();
+    showRear();
+    dequeue();
+    showFront();
+    dequeue();
+    dequeue();
+    dequeue();  // Trying to dequeue from empty queue
+    return 0;
+}
